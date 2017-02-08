@@ -6,6 +6,12 @@ ADD ./dump /
 
 RUN \
  chmod +x /init.sh && \
+ echo "deb http://mirrors.aliyun.com/debian wheezy main contrib non-free" > /etc/apt/sources.list && \
+ echo "deb-src http://mirrors.aliyun.com/debian wheezy main contrib non-free" >> /etc/apt/sources.list  && \
+ echo "deb http://mirrors.aliyun.com/debian wheezy-updates main contrib non-free" >> /etc/apt/sources.list  && \
+ echo "deb-src http://mirrors.aliyun.com/debian wheezy-updates main contrib non-free" >> /etc/apt/sources.list  && \
+ echo "deb http://mirrors.aliyun.com/debian-security wheezy/updates main contrib non-free" >> /etc/apt/sources.list  && \
+ echo "deb-src http://mirrors.aliyun.com/debian-security wheezy/updates main contrib non-free" >> /etc/apt/sources.list  && \
  apt-get update && apt-get dist-upgrade -y && \
  apt-get install psmisc -y -q && \
  apt-get autoremove -y && apt-get clean && \
